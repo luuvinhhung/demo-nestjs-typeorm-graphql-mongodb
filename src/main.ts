@@ -10,6 +10,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors();
   app.use('/voyager', voyagerMiddleware({ endpointUrl: '/graphql' }));
+  // su dung global pipe
   app.useGlobalPipes(new ValidationPipe());
   await app.listen(3000);
   Logger.log(`🚀 Server running on http://localhost:${port}`, 'Bootstrap');
