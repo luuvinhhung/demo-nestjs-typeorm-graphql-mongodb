@@ -6,7 +6,7 @@
 
 /* tslint:disable */
 export class UserInput {
-    username: string;
+    email: string;
     password: string;
 }
 
@@ -30,10 +30,9 @@ export abstract class IQuery {
 
 export class User {
     _id: string;
-    username: string;
+    email: string;
     password: string;
     status: boolean;
     createdAt: string;
     updatedAt: string;
-    version: number;
 }

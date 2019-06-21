@@ -19,7 +19,7 @@ export class User {
   _id: string;
 
   @Column()
-  username: string;
+  email: string;
 
   @Column()
   password: string;
@@ -33,9 +33,6 @@ export class User {
 
   @UpdateDateColumn({ type: 'timestamp' })
   updatedAt: String;
-
-  @VersionColumn()
-  version: number;
 
   @BeforeInsert()
   async b4register() {

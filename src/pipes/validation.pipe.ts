@@ -17,6 +17,7 @@ export class ValidationPipe implements PipeTransform {
         HttpStatus.BAD_REQUEST,
       );
     }
+    // destructuring metadata
     const { metatype } = metadata;
     if (!metatype || !this.toValidate(metatype)) {
       return value;

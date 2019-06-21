@@ -25,14 +25,14 @@ export class UsersService {
   async create(input: UserInput): Promise<User> {
     const user = new User();
     // user._id = uuid.v4();
-    user.username = input.username;
+    user.email = input.email;
     user.password = input.password;
     return await this.userRepository.save(user);
   }
   async update(_id: string, input: UserInput): Promise<boolean> {
     const user = new User();
     user._id = _id;
-    user.username = input.username;
+    user.email = input.email;
     user.password = input.password;
     return (await this.userRepository.save(user)) ? true : false;
   }
