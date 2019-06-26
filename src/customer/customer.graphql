@@ -1,0 +1,99 @@
+type Query {
+  getCustomer(id: String!): Customer
+  getCustomers: [Customer]
+}
+
+type Mutation {
+  createCustomer(info: CustomerInfo): String
+  updateCustomer(id: String!, info: CustomerInfo!): String
+  removeCustomer(id: String!): String
+  removeCustomers(id: [String!]!): String
+}
+
+type Customer {
+  _id: String
+  avatar: String
+  type: String
+  code: String
+  name: String
+  firstName: String
+  lastName: String
+  dateOfBirth: Float
+  mobile: String
+  address: String
+  email: String
+  gender: String
+  weight: Float
+  guardian: String
+  guardianID: String
+  healthInsuranceNumber: String
+  healthInsuranceExpired: Float
+  taxCode: String
+  jobName: String
+  positionName: String
+  companyName: String
+  medicalHistory: String
+  isHealthBloodPressure: Boolean
+  isInfectiousDiseases: Boolean
+  isDiabetes: Boolean
+  isProlongedBleeding: Boolean
+  isStomachAche: Boolean
+  isBothKidney: Boolean
+  isPregnant: Boolean
+  isAllergyAsthma: Boolean
+  isTakingMedicine: Boolean
+  otherDiseases: Boolean
+  groups: [String]
+  PIC: String
+  billAddress: String
+
+  isCustomer: Boolean
+  isActive: Boolean
+  createdAt: String
+  createdBy: ByUser
+  updatedAt: String
+  updatedBy: ByUser
+}
+
+input CustomerInfo {
+  avatar: String
+  type: String
+  code: String!
+  name: String
+  firstName: String
+  lastName: String
+  dateOfBirth: Float
+  mobile: String
+  address: String
+  email: String
+  gender: String
+  weight: Float
+  guardian: String
+  guardianID: String
+  healthInsuranceNumber: String
+  healthInsuranceExpired: Float
+  taxCode: String
+  jobName: String
+  positionName: String
+  companyName: String
+  medicalHistory: String
+  isHealthBloodPressure: Boolean
+  isInfectiousDiseases: Boolean
+  isDiabetes: Boolean
+  isProlongedBleeding: Boolean
+  isStomachAche: Boolean
+  isBothKidney: Boolean
+  isPregnant: Boolean
+  isAllergyAsthma: Boolean
+  isTakingMedicine: Boolean
+  otherDiseases: Boolean
+  groups: [String]
+  PIC: String
+  billAddress: String
+}
+
+type ByUser {
+  _id: String
+  username: String
+  fullName: String
+}

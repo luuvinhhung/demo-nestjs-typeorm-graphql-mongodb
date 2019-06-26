@@ -3,20 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
-import { join } from 'path';
 import { UsersModule } from './user/user.module';
 
+import { GraphqlConfigService } from './graphql.config.service';
 import { TypeOrmConfigService } from './typeorm.config.service';
 
 @Module({
   imports: [
-    GraphQLModule.forRoot({
-      typePaths: ['./**/*.graphql'],
-      definitions: {
-        path: join(process.cwd(), 'src/graphql.ts'),
-        outputAs: 'class',
-      },
-      playground: true,
+    GraphQLModule.forRootAsync({
+      useClass: GraphqlConfigService,
     }),
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,
